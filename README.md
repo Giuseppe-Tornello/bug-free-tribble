@@ -2,8 +2,8 @@
 Sviluppare un programma di supporto agli studenti che necessitano di ripassare.
 
 L'utente potrà:
-- Ripassare: l'utente potrà selezionare la materia e/o gli argomenti, il programma mostrerà delle domande (sottoforma di carta) in ordine casuale e l'utente potrà rispondere, dopodichè la carta si girerà e l'utente e avrà modo di auto-valutarsi. Il programma raccoglie statistiche sulle domande errate in modo da poterle riproporle all'utente se questo lo desidera.
-- Importare nuovi mazzi: sarà possibile importare nuovi mazzi sottoforma di file json, tramite url o incollando direttamente il contenuto del file.
+- Ripassare: l'utente potrà selezionare la materia e/o gli argomenti, il programma mostrerà delle domande (sotto forma di carta) in ordine casuale e l'utente potrà rispondere, dopodichè la carta si girerà e l'utente e avrà modo di auto-valutarsi. Il programma raccoglierà statistiche sulle domande a cui l'utente ha risposto in modo errato, offrendo la possibilità di riproporle su richiesta.
+- Importare nuovi mazzi: sarà possibile importare nuovi mazzi sotto forma di file json, tramite url o incollando direttamente il contenuto del file.
 - Creare, modificare e rimuovere i mazzi di carte e le singole carte di ogni mazzo
 ## Lato tecnico
 - Il programma verrà scritto interamente in python
