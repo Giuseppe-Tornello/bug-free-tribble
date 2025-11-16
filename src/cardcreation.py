@@ -1,5 +1,6 @@
 import json
 import os
+from .data.constants import JSON_ENCODING, USER_PATH, DECKS_PATH, DECKS_EXTESION
 
 
 def card_from_strings(question:str, answer:str, tip:str|None, tags:list[str]) -> dict:
@@ -18,14 +19,14 @@ def card_from_strings(question:str, answer:str, tip:str|None, tags:list[str]) ->
 def write_card_to_deck(card:dict, deck_name:str) -> None:
     """writes the choice card to the specified deck"""
 
-    path = "./data/decks/" + deck_name + ".json"
+    path = DECKS_PATH + deck_name + DECKS_EXTESION
 
     if not os.path.exists(path):
         deck = []
         next_id = 0
 
     else:
-        with open(path, "r", encoding="utf-8") as f:
+        with open(path, "r", encoding=JSON_ENCODING) as f:
             try:
                 deck = json.load(f)
                 head = deck[len(deck)-1]
@@ -39,7 +40,7 @@ def write_card_to_deck(card:dict, deck_name:str) -> None:
     card.update({'id': next_id})
     deck.append(card)
     
-    with open(path, "w", encoding="utf-8") as f:
+    with open(path, "w", encoding=JSON_ENCODING) as f:
         json.dump(deck, f, ensure_ascii=False, indent=2)
 
 
@@ -50,13 +51,13 @@ def import_deck(deck:list[dict], deck_name:str) -> None:
     with the same name.
     """
     
-    path = "./data/decks/" + deck_name + ".json"
+    path = DECKS_PATH + deck_name + DECKS_EXTESION
     i = 0
 
     while os.path.exists(path):
         # needed to avoid overwriting other already locally existing decks
         i += 1
-        path = "./data/decks/" + deck_name + str(i) + ".json"
+        path = DECKS_PATH + deck_name + str(i) + DECKS_EXTESION
 
-    with open(path, "w", encoding="utf-8") as f:
+    with open(path, "w", encoding=JSON_ENCODING) as f:
         json.dump(deck, f, ensure_ascii=False, indent=2)
