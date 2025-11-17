@@ -33,7 +33,7 @@ def write_card_to_deck(card:dict, deck_name:str) -> None:
         with open(path, "r", encoding=JSON_ENCODING) as f:
             try:
                 deck = json.load(f)
-                head = deck[len(deck)-1]
+                head = deck[len(deck) - 1]
                 next_id = head.get("id") + 1
             
             except json.JSONDecodeError: 
