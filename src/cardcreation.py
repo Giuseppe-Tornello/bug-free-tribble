@@ -28,7 +28,7 @@ def write_card_to_deck(card:dict, deck_name:str) -> None:
     if not os.path.exists(path):
         deck = []
         next_id = 0
-
+    
     else:
         with open(path, "r", encoding=JSON_ENCODING) as f:
             try:
@@ -54,14 +54,13 @@ def delete_card_from_deck(card_id:int, deck_name:str):
     path = _deck_name_to_path(deck_name)
 
     if not os.path.exists(path):
-        return False
-    else:
-        with open(path, "r", encoding=JSON_ENCODING) as f:
-            try:
-                deck = json.load(f)
-
-            except json.JSONDecodeError: 
-                return
+        return
+    
+    with open(path, "r", encoding=JSON_ENCODING) as f:
+        try:
+            deck = json.load(f)
+        except json.JSONDecodeError: 
+            return
     
     for i, card in enumerate(deck, start=0):
         if card.get('id') == card_id:
