@@ -2,12 +2,12 @@ import json
 import os
 from .data.constants import JSON_ENCODING, USER_PATH, DECKS_PATH, DECKS_EXTENSION
 
-def _deck_name_to_path(name:str) -> str:
+def _deck_name_to_path(name: str) -> str:
     """formats the deck name into a full relative path"""
     return DECKS_PATH + name + DECKS_EXTENSION
 
 
-def card_from_strings(question:str, answer:str, tip:str|None, tags:list[str]) -> dict:
+def card_from_strings(question: str, answer: str, tip: str|None, tags: list[str]) -> dict:
     """creates a flash card from the args"""
 
     card = {
@@ -20,7 +20,7 @@ def card_from_strings(question:str, answer:str, tip:str|None, tags:list[str]) ->
     return card
 
 
-def write_card_to_deck(card:dict, deck_name:str) -> None:
+def write_card(card: dict, deck_name: str) -> None:
     """writes the choice card to the specified deck"""
 
     path = _deck_name_to_path(deck_name)
@@ -28,7 +28,7 @@ def write_card_to_deck(card:dict, deck_name:str) -> None:
     if not os.path.exists(path):
         deck = []
         next_id = 0
-    
+
     else:
         with open(path, "r", encoding=JSON_ENCODING) as f:
             try:
@@ -71,7 +71,7 @@ def delete_card(card_id: int, deck_name: str) -> None:
         json.dump(deck, f, ensure_ascii=False, indent=2)
 
 
-def import_deck(deck:list[dict], deck_name:str) -> None:
+def import_deck(deck: list[dict], deck_name: str) -> None:
     """
     imports a whole deck locally. its intended use its related to
     remotely downloaded json files. it does not overwrite already existing decks 
