@@ -1,4 +1,5 @@
 import requests
+from .data.constants import DECKS_EXTENSION
 
 
 def _convert_github_url_to_raw(url: str) -> str:
@@ -12,7 +13,7 @@ def get_deck_from_link(url: str) -> list:
     
     url = _convert_github_url_to_raw(url)
     
-    if not url.endswith(".json"):
+    if not url.endswith(DECKS_EXTENSION):
         return []
     
     response = requests.get(url)    
