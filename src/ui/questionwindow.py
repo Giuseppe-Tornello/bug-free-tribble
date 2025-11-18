@@ -40,7 +40,7 @@ class QuestionWindow(QWidget):
 
     def on_submit(self):
         """Prints answer and closes QuestionWindow."""
-        answer = get_answer(self)
+        answer = self.get_answer()
         print("User answer: ", answer)
         self.close()
 
