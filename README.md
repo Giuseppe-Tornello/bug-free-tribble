@@ -34,7 +34,6 @@ L'utente potrà:
 - Tutto il codice verrà scritto tenendo a mente [questo articolo](https://testdriven.io/blog/clean-code-python/)
 
 # Contributors
-- [Ismaele Galdino](https://github.com/IsmaeleGaldino)
 - [Kristian Pintaudi](https://github.com/Kristoferz)
 - [Giuseppe Tornello](https://github.com/Giuseppe-Tornello)
 - [Damiano Trovato](https://github.com/BoredDam)
