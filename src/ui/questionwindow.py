@@ -1,5 +1,6 @@
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QSizePolicy, QPushButton
+from ..data.ui_constants import QUESTION_WIN_SIZE, PLACEHOLDER_TXT, ENTER_BUTTON
 
 
 class QuestionWindow(QWidget):
@@ -7,7 +8,7 @@ class QuestionWindow(QWidget):
         super().__init__()
 
         self.setWindowTitle(window_title)
-        self.resize(600, 400)
+        self.resize(QUESTION_WIN_SIZE[0], QUESTION_WIN_SIZE[1])
 
         layout = QVBoxLayout()
 
@@ -19,11 +20,11 @@ class QuestionWindow(QWidget):
 
         # --- Editable box ---
         self.user_box = QTextEdit()
-        self.user_box.setPlaceholderText("Write here...")
+        self.user_box.setPlaceholderText(PLACEHOLDER_TXT)
         self.user_box.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         # --- ENTER button ---
-        self.button = QPushButton("Enter")
+        self.button = QPushButton(ENTER_BUTTON)
         self.button.setDefault(True)
         self.button.clicked.connect(self.on_submit)
 
@@ -44,7 +45,7 @@ class QuestionWindow(QWidget):
         print("User answer: ", answer)
         self.close()
 
-
+""" USAGE SAMPLE: (keep until this module is not implemented in main)
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
@@ -54,3 +55,4 @@ if __name__ == "__main__":
     QuestionWindow.show()
 
     sys.exit(app.exec())
+"""
